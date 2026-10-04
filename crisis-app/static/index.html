@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Crisis Support Hub</title>
+  <meta name="description" content="Offline-capable coping strategies, crisis hotlines, and anonymous peer support. Student demo, not a clinical service." />
+  <meta name="theme-color" content="#1f5f8b" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>Crisis Support Hub</h1>
+    <p class="tagline">Coping tools, crisis lines, and anonymous peer support.</p>
+    <p id="net-status" class="status" role="status" aria-live="polite">Checking connection…</p>
+  </header>
+
+  <a class="crisis-bar" href="tel:988">
+    <strong>Need help right now?</strong>
+    <span>Call or text 988 (US, 24/7) &middot; Call 911 for emergencies</span>
+  </a>
+
+  <nav class="tabs" role="tablist" aria-label="Sections">
+    <button role="tab" data-tab="home" class="active" aria-selected="true">Home</button>
+    <button role="tab" data-tab="coping" aria-selected="false">Coping</button>
+    <button role="tab" data-tab="resources" aria-selected="false">Resources</button>
+    <button role="tab" data-tab="support" aria-selected="false">Peer Support</button>
+  </nav>
+
+  <main>
+    <section id="panel-home" class="panel">
+      <h2>Start here</h2>
+      <p>Pick whatever is easiest right now. Nothing here needs an account or a network connection.</p>
+      <ul class="plain">
+        <li><button class="link-btn" data-goto="coping">Calm down first</button> — short guided exercises that work offline.</li>
+        <li><button class="link-btn" data-goto="resources">Talk to someone</button> — hotlines and nearby services.</li>
+        <li><button class="link-btn" data-goto="support">Write it out</button> — post anonymously, or just to yourself.</li>
+      </ul>
+      <p class="muted">If you are in immediate danger, call your local emergency number now.</p>
+    </section>
+
+    <section id="panel-coping" class="panel" hidden>
+      <h2>Coping strategies</h2>
+      <p class="muted">Cached on your device, so these load with no connection.</p>
+      <div id="strategies" class="stack"></div>
+    </section>
+
+    <section id="panel-resources" class="panel" hidden>
+      <h2>Resources</h2>
+      <button id="locate-btn" class="cta">Sort by distance</button>
+      <p id="locate-status" class="muted"></p>
+      <div id="resources" class="stack"></div>
+    </section>
+
+    <section id="panel-support" class="panel" hidden>
+      <h2>Peer support</h2>
+      <p class="muted">
+        Anonymous and unmoderated. Posts live in the demo server's memory and vanish on restart,
+        so please don't include names, contact details, or anything identifying.
+      </p>
+      <label class="visually-hidden" for="post-input">Your message</label>
+      <textarea id="post-input" maxlength="500" placeholder="Write whatever you want to say…"></textarea>
+      <div class="row">
+        <button id="post-btn" class="cta">Post</button>
+        <span id="queue-status" class="muted"></span>
+      </div>
+      <div id="posts" class="stack"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      <strong>This is a student hackathon demo, not a clinical service and not monitored.</strong>
+      It does not provide medical advice, diagnosis, or therapy. If you are in crisis, call or text
+      <a href="tel:988">988</a> (US) or your local emergency number.
+    </p>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>
